@@ -6,7 +6,7 @@ RUN apk add --no-cache \
     curl \
     supervisor \
     nginx \
-    libnginx-mod-rtmp \
+    nginx-mod-rtmp \
     php82 \
     php82-bcmath \
     php82-cli \
@@ -18,7 +18,7 @@ RUN apk add --no-cache \
     php82-intl \
     php82-json \
     php82-mbstring \
-    php82-mysql \
+    php82-mysqli \
     php82-opcache \
     php82-openssl \
     php82-pdo \
@@ -33,7 +33,7 @@ RUN apk add --no-cache \
 RUN ln -s /usr/bin/php82 /usr/bin/php
 
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
 # Copy Configuration Files
 COPY config/nginx.conf /etc/nginx/nginx.conf
